@@ -2,7 +2,8 @@ Spree::Payment.class_eval do
   has_one :adjustment, :as => :source, :dependent => :destroy
   before_save :remove_old_adjustment
   after_save :ensure_correct_adjustment, :update_order, :if => Proc.new {|p| !p.payment_method.calculator.blank?}
-  
+  attr_accessible :calculator_type
+
   private
   def remove_old_adjustment
     order.adjustments.each do |adjustment|
