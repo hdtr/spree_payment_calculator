@@ -1,5 +1,6 @@
 Spree::PaymentMethod.class_eval do
   calculated_adjustments
+  attr_accessible :calculator_type, :calculator_attributes
   
   def self.send_calculator(id = nil)
     if id

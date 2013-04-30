@@ -1,6 +1,6 @@
 /*
  *= require admin/spree_core
 */
-.edit_payment_method_check .select2-choice {
+[data-hook="payment_method"] .select2-choice {
   padding: 5px 1px 7px;
 }
