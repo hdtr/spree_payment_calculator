@@ -22,6 +22,10 @@ module SpreePaymentCalculator
     end
 
     initializer 'spree.register.calculators' do |app|
+      Dir.glob(File.join(File.dirname(__FILE__),'../../app/model/spree/*_decorator.rb')).each do |f| 
+        require f
+      end
+      
       begin
         if Gem::Specification::find_by_name('spree_paypal_express')
           Spree::BillingIntegration.class_eval do
@@ -53,7 +57,6 @@ module SpreePaymentCalculator
         Spree::PaymentCalculator::FlatRate,
       ]
     end
-
     config.to_prepare &method(:activate).to_proc
   end
 end
