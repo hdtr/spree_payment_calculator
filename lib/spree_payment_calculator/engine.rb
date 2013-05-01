@@ -22,7 +22,7 @@ module SpreePaymentCalculator
     end
 
     initializer 'spree.register.calculators' do |app|
-      Dir.glob(File.join(File.dirname(__FILE__),'../../app/model/spree/*_decorator.rb')).each do |f| 
+      Dir.glob(File.join(File.dirname(__FILE__),'../../app/model/spree/*_decorator.rb')).sort.each do |f| 
         require f
       end
       
