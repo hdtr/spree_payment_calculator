@@ -6,7 +6,7 @@ Spree::Payment.class_eval do
   private
   def remove_old_adjustment
     order.adjustments.each do |adjustment|
-      adjustment.destroy if adjustment.source_type == "Payment"
+      adjustment.destroy if adjustment.source_type == "Spree::Payment"
     end
   end
   
