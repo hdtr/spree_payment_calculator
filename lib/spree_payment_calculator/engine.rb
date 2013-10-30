@@ -28,9 +28,6 @@ module SpreePaymentCalculator
       
       begin
         if Gem::Specification::find_by_name('spree_paypal_express')
-          Spree::BillingIntegration.class_eval do
-            calculated_adjustments
-          end
           app.config.spree.calculators.add_class('billing_integrations')
           app.config.spree.calculators.billing_integrations = [
             Spree::PaymentCalculator::DefaultTax,
